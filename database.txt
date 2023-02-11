@@ -1,0 +1,48 @@
+CREATE TABLE Iphone_Fency_Mobile2(PHONE_ID NUMBER(10) PRIMARY KEY, DISPLAY_SIZE VARCHAR2(20), BATTERY VARCHAR2(2
+0),COLOR VARCHAR2(20),SIM VARCHAR(20));
+
+CREATE TABLE iphone_fensi_mobile2(PHONE_ID NUMBER NOT NULL PRIMARY KEY, DISPLAY_SIZE VARCHAR2(20), BATTERY VARCHAR2(20),COLOR VARCHAR2(20),SIM VARCHAR(20));
+
+--Android Fency Swarnajit
+INSERT INTO Android_Fency_Mobile4 VALUES(1,'5.7 INC','3000','GOLDEN','SINGLE');
+INSERT INTO Android_Fency_Mobile4 VALUES(2,'5.7 INC','3000','WHITE','DUAL');
+INSERT INTO Android_Fency_Mobile4 VALUES(3,'6 INC','3500','BLACK','SINGLE');
+INSERT INTO Android_Fency_Mobile4 VALUES(4,'6 INC','3500','RED','SINGLE');
+INSERT INTO Android_Fency_Mobile4 VALUES(5,'6.2 INC','4000','PURPLE','DUAL');
+
+
+-- iphone core swarnajit
+INSERT INTO  iphone_core_mobile1 VALUES(1,'IOS','Iphone X','A11 Bionic', '3 GB','128 GB', '12 MP',55000, 'Apple');
+
+INSERT INTO  iphone_core_mobile1 VALUES(2,'IOS','Iphone X','A11 Bionic', '3 GB','256 GB', '12 MP',65000, 'Apple');
+
+INSERT INTO  iphone_core_mobile1 VALUES(3,'IOS','Iphone 13','A14 Bionic', '4 GB','128 GB', '16 MP', 75000, 'Apple');
+
+INSERT INTO  iphone_core_mobile1 VALUES(4,'IOS','Iphone 13','A14 Bionic', '4 GB','256 GB', '16 MP', 80000, 'Apple');
+
+INSERT INTO  iphone_core_mobile1 VALUES(5,'IOS','Iphone 14','A15 Bionic', '6 GB','256 GB', '24 MP',90000, 'Apple');
+
+INSERT INTO  iphone_core_mobile1 VALUES(6,'IOS','Iphone 14','A15 Bionic', '6 GB','512 GB', '24 MP',165000, 'Apple');
+
+--iphone fenci  arittra
+INSERT INTO Iphone_Fency_Mobile2 VALUES(1,'5.7 INC','3000','GOLDEN','SINGLE');
+INSERT INTO Iphone_Fency_Mobile2 VALUES(2,'5.7 INC','3000','WHITE','DUAL');
+INSERT INTO Iphone_Fency_Mobile2 VALUES(3,'6 INC','3500','BLACK','SINGLE');
+INSERT INTO Iphone_Fency_Mobile2 VALUES(4,'6 INC','3500','RED','SINGLE');
+INSERT INTO Iphone_Fency_Mobile2 VALUES(5,'6.2 INC','4000','PURPLE','DUAL');
+INSERT INTO Iphone_Fency_Mobile2 VALUES(6,'6.2 INC','4000','BLACK','DUAL');
+
+--android core Arittra
+INSERT INTO  android_core_mobile3 VALUES(1,'Android','Xiomi Redmi A1+','SnapDragon-540', 4,128, 48,12000, 'Redmi');
+
+INSERT INTO  android_core_mobile3 VALUES(2,'Android','Poco X2','SnapDragon-720', 6,64, 64,27000, 'Xiomi');
+
+INSERT INTO  android_core_mobile3 VALUES(3,'Android','Poco X3','SnapDragon-730', 8,128, 64, 30000, 'Xiomi');
+
+INSERT INTO  android_core_mobile3 VALUES(4,'Android','Samsung J2','Quade-3.0', 4,32, 16, 10000, 'Samsung');
+
+INSERT INTO  android_core_mobile3 VALUES(5,'Android','Samsung A2','Quade-2.0', 4,256, 64,20000, 'Samsung');
+INSERT INTO  android_core_mobile3 VALUES(6,'Android','Sampony A8','Quade-2.0', 2,64, 64,10000, 'Sampony');
+
+
+CREATE TABLE android_core_mobile3(PHONE_ID NUMBER NOT NULL PRIMARY KEY, OS VARCHAR2(20),model varchar(20), PROCESSOR VARCHAR2(20), RAM NUMBER,Rom NUMBER,CAMERA NUMBER,PRICE NUMBER, BRAND VARCHAR2(20));
