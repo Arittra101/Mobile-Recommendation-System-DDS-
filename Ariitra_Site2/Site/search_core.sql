@@ -12,7 +12,7 @@ accept B number prompt "Enter of your phone Camera = ";
 create or replace procedure  android(price in number,money_flt in number,ram in number,ram_flt in number,processor in varchar2,rom in number,rom_flt in number,camera in number)
 is 
 begin
-  dbms_output.put_line('PhoneId' ||' ' || 'Ram' ||  'Rom' || ' ' || 'PROCESSOR'  || ' ' || 'display_size' || ' ' || 'battery');
+  dbms_output.put_line('Phone Name' ||' ' || 'Ram' ||  'Rom' || ' ' || 'PROCESSOR'  || ' ' || 'display_size' || ' ' || 'battery');
   for R in (select * from android_core_mobile3) loop
 
       if  R.price>=price-2000 and R.price <= money_flt OR R.RAM>=ram and R.RAM<=ram_flt OR R.Rom>=rom and R.RAM<=ram_flt then 
@@ -90,11 +90,13 @@ declare
 
   an_check number; 
   iph_check number;
-  price number;
-  ram number;
-  rom number;
-  camera number;
-  processor varchar2(30);
+
+
+  price number:=&Y;
+  ram number :=&k;
+  processor varchar2(30):='&Z';
+  rom number:=&A;
+  camera number:=&B;
   
   money_flt number;
   ram_flt number;
@@ -111,6 +113,7 @@ declare
   Ipmoney_flt number;
   Ipram_flt number;
   Iprom_flt number;
+    
 
 
 begin
@@ -122,11 +125,7 @@ begin
 
   -- if android work from here
  if an_check = 1 then
-     price:=&Y;
-     ram:=&k;
-     processor:='&Z';
-     rom:=&A;
-     camera:=&B;
+
      
 
       select AVG(PRICE) into money_flt from android_core_mobile3;
@@ -147,11 +146,7 @@ begin
   else
     dbms_output.put_line('from iphone');
 
-     Ipprice:=&Y;
-     Ipram:=&k;
-     Ipprocessor:='&Z';
-     Iprom:=&A;
-     Ipcamera:=&B;
+
 
      select AVG(PRICE) into Ipmoney_flt from iphone_core_mobile1@site_friend;
      select AVG(TO_NUMBER(RAM)) into Ipram_flt from iphone_core_mobile1@site_friend;
@@ -159,9 +154,12 @@ begin
      --dbms_output.put_line(Ipprice || Ipram || Ipprocessor || Iprom || Ipcamera);
      --dbms_output.put_line(Ipmoney_flt || ' ' || Ipram_flt||' '||Iprom_flt);
 
-       if Ipprice>=Ipmoney_flt then
-        iphone1(Ipprice,Ipmoney_flt,Ipram,Ipram_flt,Ipprocessor,Iprom,Iprom_flt,Ipcamera);
-       else iphone(Ipprice,Ipmoney_flt,Ipram,Ipram_flt,Ipprocessor,Iprom,Iprom_flt,Ipcamera);
+       if price>=Ipmoney_flt then
+        -- dbms_output.put_line('input price > avg');
+         iphone1(price,Ipmoney_flt,ram,Ipram_flt,processor,rom,Iprom_flt,Ipcamera);
+       else   
+        -- dbms_output.put_line('input price < avg'); 
+         iphone(price,Ipmoney_flt,ram,Ipram_flt,processor,rom,Iprom_flt,Ipcamera);
        end if;       
        
   
