@@ -1,0 +1,32 @@
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+
+-- CREATE OR REPLACE TRIGGER TRR1
+-- AFTER DELETE 
+-- ON iphone_core_mobile1
+-- BEGIN
+--     DBMS_OUTPUT.PUT_LINE('PHONE DELETE FORM IPHONE CORE INFORMATION TABLE AT SITE 1'); 
+-- END;
+-- /
+
+
+ACCEPT A CHAR PROMPT "ENTER  PHONE TYPE AND/IOS  =  "
+ACCEPT B NUMBER PROMPT "ENTER  PHONE ID = "
+
+DECLARE
+   Choise VARCHAR2(20) :='&A';
+   PHONE_ID1 android_core_mobile3.PHONE_ID%TYPE := &B;
+
+BEGIN 
+   
+   IF Choise = 'IOS' THEN
+      DELETE FROM iphone_core_mobile1@site_friend WHERE PHONE_ID = PHONE_ID1;
+      DELETE FROM iphone_fency_mobile2 WHERE PHONE_ID = PHONE_ID1;
+   ELSE 
+      DELETE FROM android_core_mobile3 WHERE PHONE_ID = PHONE_ID1;
+      DELETE FROM Android_Fency_Mobile4@site_friend WHERE PHONE_ID =PHONE_ID1;
+   END IF;
+
+END;
+/
+COMMIT;
