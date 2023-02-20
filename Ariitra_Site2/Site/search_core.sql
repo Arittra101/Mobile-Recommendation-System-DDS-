@@ -18,7 +18,7 @@ begin
       if  R.price>=price-2000 and R.price <= money_flt OR R.RAM>=ram and R.RAM<=ram_flt OR R.Rom>=rom and R.RAM<=ram_flt then 
       for N in (select * from android_fency_mobile4@site_friend) loop
        if N.phone_id = R.phone_id then
-          dbms_output.put_line(R.phone_id ||' ' || R.RAM || ' '||  R.ROM || ' ' || R.PROCESSOR  || ' ' || N.display_size || ' ' || N.battery);
+          dbms_output.put_line(R.phone_id ||' ' || R.RAM || ' '||  R.ROM || ' ' || R.PROCESSOR  || ' ' || N.display_size || ' ' || N.battery||' ' ||R.price);
       end if;
 
     end loop;   

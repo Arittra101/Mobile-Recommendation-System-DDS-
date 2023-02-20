@@ -8,25 +8,37 @@ DECLARE
   NAME1 VARCHAR2(20) := '&A';
   CITY VARCHAR2(10) := '&B';
   X NUMBER :=0;
+  Y number :=0;
 BEGIN
   IF CITY = 'DHAKA' THEN
      FOR R IN (SELECT Customer1.CUSTOMER_ID AS CID, Customer1.C_NAME AS NAME2 FROM Customer1@site_friend) LOOP
          IF R.NAME2 = NAME1 THEN 
-            DBMS_OUTPUT.PUT_LINE('CUSTOMER FOUND IN DHAKA');
-         ELSE 
-            DBMS_OUTPUT.PUT_LINE('CUSTOMER NOT FOUND IN DHAKA');
+            X := 1;
+         
          END IF;
      END LOOP;
+
+
+      if X = 1 then
+         DBMS_OUTPUT.PUT_LINE('CUSTOMER FOUND IN DHAKA');
+      ELSE 
+         DBMS_OUTPUT.PUT_LINE('CUSTOMER NOT FOUND IN DHAKA');
+      end if;
+
   ELSE 
   
     FOR P IN (SELECT CUSTOMER_ID AS CID, C_NAME AS NAME3 FROM Customer2) LOOP
          IF P.NAME3 = NAME1 THEN 
-            DBMS_OUTPUT.PUT_LINE('CUSTOMER FOUND IN CHATTAGONG');
-         ELSE 
-            DBMS_OUTPUT.PUT_LINE('CUSTOMER NOT FOUND IN CHATTAGONG');
+            Y := 1;
          END IF;
-    END LOOP;
-   END IF;
-   
+      end loop;   
+
+
+    if Y = 1 then 
+      DBMS_OUTPUT.PUT_LINE('CUSTOMER FOUND IN CHATTAGONG');
+    ELSE 
+      DBMS_OUTPUT.PUT_LINE('CUSTOMER NOT FOUND IN CHATTAGONG'); 
+    END IF;
+   end if;
 END;
 /
